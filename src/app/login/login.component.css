@@ -1,0 +1,16 @@
+
+
+
+  
+.but{
+    position: relative;
+    background-color: #003459;
+    border-radius: 5px;
+    float: left;
+    height: 40px;
+   
+    width: 233px;
+    color: white;
+    top: 50px;
+    left:60px;
+}

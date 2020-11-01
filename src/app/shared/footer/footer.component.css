@@ -1,0 +1,40 @@
+
+footer{
+	margin-top: 0px;
+	height: 150px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	bottom: 0px;
+}
+.sponsor{
+	margin-left: 50px;
+}
+.tea{
+	background-color: #003459;
+}
+.sponsor{
+	display: flex;
+	position: relative;
+}
+.Banque{
+	left: 20px;
+	width: 70px;
+	height: 60px;
+	margin: 10px;
+	padding: 0px;
+	/*float: left;*/
+}
+.Mtn{
+	width: 70px;
+	height: 60px;
+	margin: 10px;
+	padding: 0px;
+}
+.Moov{
+	position: relative;
+	clear: none;
+	width: 70px;
+	height: 60px;
+	margin: 10px;
+	padding: 0px;
+}

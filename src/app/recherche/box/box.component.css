@@ -1,0 +1,48 @@
+.covid{
+    position: relative;
+    background-color: wheat;
+    width: 100%;
+    height: 50px;
+    top: 5px;
+    border: solid 1px  yellow;
+
+}
+
+.box{
+    position: relative;
+    background-color: #003459;
+    width: 100%;
+    height: 70px;
+    top: 10px;
+}
+
+.div{
+	position: relative;
+	background-color: white;
+	width: 250px;
+	border-radius: 8px;
+	height: 50px;
+	top: 50px;
+	left: 40px;
+	margin-right: 25px;
+	
+}
+.dive{
+	position: relative;
+	background-color: white;
+	width: 400px;
+	border-radius: 8px;
+	height: 50px;
+	top: 50px;
+	left: 40px;
+	margin-right: 25px;
+}
+
+.float{
+	display: flex;
+	float: left;
+	position: absolute;
+	bottom: 60px;
+	left: 75px;
+	
+}

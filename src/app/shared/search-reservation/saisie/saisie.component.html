@@ -1,0 +1,12 @@
+<form class="example-form">
+    <input type="text"
+           placeholder="Depuis: Ville, point de départ"
+           [formControl]="control"
+           [matAutocomplete]="auto" style="color: black;">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+        {{street}}
+      </mat-option>
+    </mat-autocomplete>
+  </form>
+  

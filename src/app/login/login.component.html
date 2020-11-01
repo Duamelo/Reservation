@@ -1,0 +1,55 @@
+<h2 mat-dialog-title style="text-align: center; color:black;">Se connecter</h2>
+
+<mat-dialog-content style="position: relative; min-height: 380px;">
+  <p style="position: relative;margin-bottom:5px; font-size: 10px;">
+    <mat-form-field appearance="outline" style="position: relative;left:60px;">
+      <mat-label>Entre ton numéro de téléhone</mat-label>
+      <mat-icon matSuffix style="position: relative; bottom: 10px;">phone</mat-icon>
+      <input matInput placeholder="téléphone" style="height: 18px; position: relative; top: 6px;">
+      
+    </mat-form-field>
+  </p>
+
+  <p style="position: relative; margin-bottom:5px;font-size: 10px;">
+    <mat-form-field appearance="outline" style="position: relative;left:60px; width: 218px; ">
+      <mat-label>Entre ton mot de passe</mat-label>
+      <mat-icon style="position: relative;float: right;"> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+     
+      <input matInput placeholder="mot de passe" [type]="hide ? 'password' : 'text'" style="height: 0px;  position: relative; top: 6px; padding: 0px;">
+ 
+     
+    </mat-form-field>
+  </p>
+<!-- <div style="position: relative; float: right;">
+  <mat-checkbox style="position: relative; top: 30px;">Remember me</mat-checkbox>
+ 
+  <a href="" style="position: relative; top:50px">Forget Pass word</a>
+ 
+</div>
+
+-->
+
+
+
+  <mat-checkbox style="position: relative; top: 30px; left:60px;">Se souvenir de moi</mat-checkbox>
+
+<p>
+  <a href="" style="position: relative; top:30px; left:60px;">Mot de passe oublié ?</a>
+
+</p>
+  
+
+
+
+
+  
+<button class="but">Se connecter</button>
+
+<h6 style="position: relative;
+top: 80px;display: inline-flex; left: 60px;">
+  Pas de compte?
+  <a href="">S'enregistrer</a>
+</h6>
+
+
+</mat-dialog-content>

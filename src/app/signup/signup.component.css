@@ -1,0 +1,25 @@
+.identite{
+    display: flex;
+    font-size: 10px;
+}
+
+  
+.but{
+    position: relative;
+    background-color: #003459;
+    border-radius: 5px;
+
+    height: 40px;
+   
+    width: 405px;
+    color: white;
+    top: 20px;
+
+}
+
+
+.signup{
+    position: relative;
+    margin: 0px;
+    left: 20px;
+}

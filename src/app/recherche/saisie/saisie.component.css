@@ -1,0 +1,15 @@
+.example-form {
+    position: relative;
+    right: 3px;
+    bottom: 0px;
+      min-width: 150px;
+      max-width: 300px;
+      width: 80%;
+      float: right;
+      top: 1px;
+  
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }

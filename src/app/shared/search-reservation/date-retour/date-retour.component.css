@@ -1,0 +1,10 @@
+.dat{
+    position: relative;
+    width: 45%;
+    height: 20px;
+
+   /* background-color: yellow;*/
+    height: 40px;
+    left: 50%;
+    bottom: 35px;
+}

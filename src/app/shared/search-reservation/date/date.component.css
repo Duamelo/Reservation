@@ -1,0 +1,11 @@
+.date{
+    position: relative;
+    width: 50%;
+    height: 20px;
+    border-right-style: solid;
+    border-width: 0px 1px 0px 0px;
+   
+    top: 6px;
+   /* background-color: yellow;*/
+    height: 40px;
+}

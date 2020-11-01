@@ -1,0 +1,10 @@
+.liste{
+    position: relative;
+    background-color: teal;
+    width: 100%;
+    height: 250px;
+    top: 80px;
+    background-color: #E6E9E6;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}

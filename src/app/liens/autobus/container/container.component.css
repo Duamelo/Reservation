@@ -1,0 +1,22 @@
+.containere{
+
+    width: 100%;
+   
+}
+
+.partenaire{
+    position: relative;
+   /* background-color: blue;*/
+    height: 130px;
+    width: 100%;
+    top: 150px;
+    margin-bottom: 200px;
+}
+
+.main{
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+   /* background-color: blue;*/
+    
+}
