@@ -23,12 +23,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { OngletComponent } from './onglet/onglet.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { SelectComponent } from './select/select.component';
+import { GeolocalisationComponent } from './geolocalisation/geolocalisation.component';
 
 
 
 
 @NgModule({
-  declarations: [SeeReservationComponent, NavComponent, BoxComponent, ListComponent, DateComponent, DateRetourComponent, SaisieComponent, OngletComponent],
+  declarations: [SeeReservationComponent, NavComponent, BoxComponent, ListComponent, DateComponent, DateRetourComponent, SaisieComponent, OngletComponent, SelectComponent, GeolocalisationComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,
