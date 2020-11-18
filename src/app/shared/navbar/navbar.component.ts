@@ -12,8 +12,8 @@ export class NavbarComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
   openDialog1() {
     this.dialog.open(LoginComponent, {
-      width:'600px',
-      height:'700px'
+      width:'350px',
+      height:'480px'
     })
       .afterClosed()
       .subscribe(result => console.log(result));
