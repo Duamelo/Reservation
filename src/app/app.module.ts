@@ -22,6 +22,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+
+import { authInterceptorProviders } from '../_helpers/auth.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,14 +49,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatDialogModule,
     MatIconModule,
     MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
 
 
   ],
   exports:[
     LoginComponent
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

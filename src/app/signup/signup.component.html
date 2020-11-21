@@ -1,21 +1,29 @@
 <div class="signup">
     <h2 mat-dialog-title style=" position: relative; color:black; left:160px;">S'inscrire</h2>
 
+<form
+
+[formGroup]="userDetailsForm" (ngSubmit)="onSubmit()"
+>
 
     <div class="identite">
         <p style="margin-right: 15px;">
             <mat-form-field appearance="outline" style="position: relative; ">
               <mat-label>Prénom</mat-label>
-              <input matInput placeholder="prénom" style="position: relative; max-height: 15px; top: 5px;">
-           
+              <input matInput placeholder="prénom" style="position: relative; max-height: 15px; top: 5px;" formControlName="prenom" required>
+              <mat-error *ngFor="let validation of validation_messages.prenom">
+                <mat-error class="error-message" *ngIf="userDetailsForm.get('prenom').hasError(validation.type) && (userDetailsForm.get('prenom').dirty || userDetailsForm.get('prenom').touched)">{{validation.message}}</mat-error>
+              </mat-error>
             </mat-form-field>
         </p>
         
           <p>
             <mat-form-field appearance="outline"  style="position: relative;">
               <mat-label>Nom</mat-label>
-              <input matInput placeholder="nom" style="position: relative; max-height: 15px;top: 5px;">
-           
+              <input matInput placeholder="nom" style="position: relative; max-height: 15px;top: 5px;" formControlName="nom" required> 
+              <mat-error *ngFor="let validation of validation_messages.nom">
+                <mat-error class="error-message" *ngIf="userDetailsForm.get('nom').hasError(validation.type) && (userDetailsForm.get('nom').dirty || userDetailsForm.get('nom').touched)">{{validation.message}}</mat-error>
+              </mat-error>
             </mat-form-field>
         </p>
     </div>
@@ -23,47 +31,73 @@
     <div style="font-size: 10px;">
         <mat-form-field appearance="outline" style="position: relative; width: 405px; top: 20px;"> 
             <mat-label>Email</mat-label>
-            <input matInput placeholder="email" style="position: relative; max-height: 15px; top:5px;">
-         
+            <input matInput placeholder="email" style="position: relative; max-height: 15px; top:5px;" formControlName="email" required>
+            <mat-error *ngFor="let validation of account_validation_messages.email">
+              <mat-error class="error-message" *ngIf="accountDetailsForm.get('email').hasError(validation.type) && (accountDetailsForm.get('email').dirty || accountDetailsForm.get('email').touched)">{{validation.message}}</mat-error>
+            </mat-error>  
           </mat-form-field>
       
     </div>
         
     
-    <div class="identite">
+    <div class="identite" formGroupName="country_phone" >
         <p style="margin-right: 15px;">
             <mat-form-field appearance="outline" style="position: relative; top: 20px;">
               <mat-label>Pays</mat-label>
-              <input matInput placeholder="Pays" style="position: relative; max-height: 15px; top: 5px;">
-           
+              <mat-select formControlName="country" placeholder="Country">
+                <mat-option *ngFor="let country of countries" [value]="country">
+                  {{ country.name }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
         </p>
         
           <p>
             <mat-form-field appearance="outline" style="position: relative; top: 20px;">
               <mat-label>Téléphone</mat-label>
-              <input matInput style="position: relative; max-height: 15px; top: 5px;">
-           
+              <input matInput style="position: relative; max-height: 15px; top: 5px;"  placeholder="Phone" type="tel" formControlName="phone" required>
+              <mat-error *ngFor="let validation of validation_messages.phone">
+                <mat-error class="error-message" class="error-message" *ngIf="userDetailsForm.get('country_phone').get('phone').hasError(validation.type) && (userDetailsForm.get('country_phone').get('phone').dirty || userDetailsForm.get('country_phone').get('phone').touched)">
+                  {{ validation.message }}
+                </mat-error>
+              </mat-error>
             </mat-form-field>
         </p>
     </div>
     
     
-    <div style="font-size: 10px;">
+    <div style="font-size: 10px; display: flex;" formGroupName="matching_passwords">
         <mat-form-field appearance="outline" style="position: relative; width: 405px; top: 20px;">
             <mat-label>Mot de passe</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'"  style="position: relative; max-height: 15px; top: 5px;">
+            <input matInput [type]="hide ? 'password' : 'text'"  style="position: relative; max-height: 15px; top: 5px;" formControlName="password" required>
+            <mat-error *ngFor="let validation of account_validation_messages.password">
+              <mat-error class="error-message" *ngIf="accountDetailsForm.get('matching_passwords').get('password').hasError(validation.type) && (accountDetailsForm.get('matching_passwords').get('password').dirty || accountDetailsForm.get('matching_passwords').get('password').touched)">{{validation.message}}</mat-error>
+            </mat-error>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
                 
           </mat-form-field>
-      
+
+          <mat-form-field appearance="outline" style="position: relative; width: 405px; top: 20px;">
+            <mat-label>Mot de passe confirmé</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'"  style="position: relative; max-height: 15px; top: 5px;"  placeholder="Confirm Password" formControlName="confirm_password"  [errorStateMatcher]="parentErrorStateMatcher" required>
+            <mat-error *ngFor="let validation of account_validation_messages.confirm_password">
+              <mat-error class="error-message" *ngIf="(accountDetailsForm.get('matching_passwords').get('confirm_password').hasError(validation.type)|| accountDetailsForm.get('matching_passwords').hasError(validation.type)) && (accountDetailsForm.get('matching_passwords').get('confirm_password').dirty || accountDetailsForm.get('matching_passwords').get('confirm_password').touched)">{{validation.message}}</mat-error>
+            </mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+                
+          </mat-form-field>
+
       
     </div>
         
     
-    <button class="but">S'inscrire</button>
+    <button class="but" type="submit" [disabled]="!userDetailsForm.valid">S'inscrire</button>
+  </form>
+
     
     <p style="position: relative; text-align: center; top: 35px;">
         En cliquant sur S'inscrire, vous acceptez
