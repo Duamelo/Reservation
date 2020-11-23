@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
   /*isSuccessful = false;
   isSignUpFailed = false;
 */
-/*
+
   errorMessage='';
 
   userDetailsForm: FormGroup;
@@ -53,16 +53,16 @@ export class SignupComponent implements OnInit {
 
   validation_messages = {
     'prenom': [
-      { type: 'required', message: 'Full name is required' }
+      { type: 'required', message: 'prenom is required' }
     ],
     'nom': [
-      { type: 'maxlength', message: 'Bio cannot be more than 256 characters long' },
+      { type: 'maxlength', message: 'nom be more than 256 characters long' },
     ],
     'email': [
-      { type: 'required', message: 'Please select your gender' },
+      { type: 'required', message: 'Please enter your email' },
     ],
     'password': [
-      { type: 'required', message: 'Please insert your birthday' },
+      { type: 'required', message: 'Please enter your password' },
     ],
     'phone': [
       { type: 'required', message: 'Phone is required' },
@@ -72,8 +72,8 @@ export class SignupComponent implements OnInit {
 
   account_validation_messages = {
     'prenom': [
-      { type: 'required', message: 'lastname is required' },
-      { type: 'minlength', message: 'lastname must be at least 5 characters long' },
+      { type: 'required', message: 'le prénom est requis' },
+      { type: 'minlength', message: 'la taille minimale est de 5 caractères' },
       { type: 'maxlength', message: 'lastname cannot be more than 25 characters long' },
       { type: 'pattern', message: 'Your lastname must contain only numbers and letters' },
       { type: 'validUsername', message: 'Your lastname has already been taken' }
@@ -101,12 +101,12 @@ export class SignupComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder, private authService: AuthService) { }
-*/
+
  ngOnInit(): void { 
- // this.createForms();
+  this.createForms();
   }
 
-/*
+
   createForms() {
     // matching passwords validation
     this.matching_passwords_group = new FormGroup({
@@ -159,9 +159,9 @@ export class SignupComponent implements OnInit {
       country_phone: this.country_phone_group
     });
 
-  }*/
+  }
 
-/*
+
   onSubmit(){
     this.authService.register(this.userDetailsForm).subscribe(
       data => {
@@ -173,5 +173,5 @@ export class SignupComponent implements OnInit {
       }
     );
   }
-*/
+
 }

@@ -1,44 +1,75 @@
-<form>
+<form [formGroup]="userDetailsForm" (ngSubmit)="onSubmit()">
   <div class="form-row">
     <div class="col">
       <mat-form-field appearance="outline" style="position: relative; ">
         <mat-label>Prénom</mat-label>
-        <input matInput placeholder="prénom" style="position: relative; max-height: 15px; top: 5px;">
-     
+        <input matInput placeholder="prénom" formControlName="prenom" required style="position: relative; max-height: 15px; top: 5px;">
+        <mat-error *ngFor="let validation of validation_messages.prenom">
+          <mat-error class="error-message" *ngIf="userDetailsForm.get('prenom').hasError(validation.type) && (userDetailsForm.get('prenom').dirty || userDetailsForm.get('prenom').touched)">
+            {{validation.message}}
+          </mat-error>
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="col">
       <mat-form-field appearance="outline"  style="position: relative;">
         <mat-label>Nom</mat-label>
-        <input matInput placeholder="nom" style="position: relative; max-height: 15px;top: 5px;">
-     
+        <input matInput placeholder="nom" style="position: relative; max-height: 15px;top: 5px;" formControlName="nom" required >
+        <mat-error *ngFor="let validation of validation_messages.nom">
+          <mat-error class="error-message" *ngIf="userDetailsForm.get('nom').hasError(validation.type) && (userDetailsForm.get('nom').dirty || userDetailsForm.get('nom').touched)">
+            {{validation.message}}
+          </mat-error>
+        </mat-error>
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline" style="position: relative; width: 92%;">
       <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" style="max-height: 15px;">
-     
+      <input matInput placeholder="pat@example.com" type="email" formControlName="email" required style="max-height: 15px;">
+      <mat-error *ngFor="let validation of account_validation_messages.email">
+        <mat-error class="error-message" *ngIf="userDetailsForm.get('email').hasError(validation.type) && (userDetailsForm.get('email').dirty || userDetailsForm.get('email').touched)">
+          {{validation.message}}
+        </mat-error>
+      </mat-error>
     </mat-form-field>
 
-
+                    <!--  ----------------------------  Country and phone input and validation        ------------------------------------------   -->
     <div class="row">
       <mat-form-field appearance="outline" class="col">
         <mat-label>Pays*</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+        <mat-select formControlName="country" placeholder="Pays">
+          <mat-option *ngFor="let country of countries" [value]="country">
+            
+            {{country.name}}
+
+          </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline" class="col">
         <mat-label> Téléphone </mat-label>
-        <input matInput style="max-height: 15px;">
+        <input matInput placeholder="téléphone" type="tel" formControlName="phone" required style="max-height: 15px;">
+        <mat-hint align="start"><strong>Mobile:</strong> {{ userDetailsForm.value.country_phone.country.sampleMobilePhone }}</mat-hint>
+ 
+        <mat-error *ngFor="let validation of validation_messages.phone">
+          <mat-error class="error-message" class="error-message" *ngIf="userDetailsForm.get('country_phone').get('phone').hasError(validation.type) && (userDetailsForm.get('country_phone').get('phone').dirty || userDetailsForm.get('country_phone').get('phone').touched)">
+            {{ validation.message }}
+          </mat-error>
+        </mat-error>
       </mat-form-field>
       
     </div>
-    <div class="row">
+
+                    <!--   -----------------------------    End of Country and phone validation       ------------------------------------                  -->
+    <div formGroupName="matching_passwords" class="row">
       <mat-form-field appearance="outline"  class="col">
         <mat-label>Mot de passe</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'"  style="position: relative; max-height: 15px; top: 5px;">
+        <mat-error *ngFor="let validation of account_validation_messages.password">
+          <mat-error class="error-message" *ngIf="userDetailsForm.get('matching_passwords').get('password').hasError(validation.type) && (userDetailsForm.get('matching_passwords').get('password').dirty || userDetailsForm.get('matching_passwords').get('password').touched)">
+            {{validation.message }}
+          </mat-error>
+        </mat-error>
+      
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -49,6 +80,12 @@
       <mat-form-field appearance="outline" class="col">
         <mat-label>Mot de passe confirmé </mat-label>
         <input matInput [type]="hide ? 'password' : 'text'"  style="position: relative; max-height: 15px; top: 5px;">
+        <mat-error *ngFor="let validation of account_validation_messages.confirm_password">
+          <mat-error class="error-message" *ngIf="(userDetailsForm.get('matching_passwords').get('confirm_password').hasError(validation.type)|| userDetailsForm.get('matching_passwords').hasError(validation.type)) && (userDetailsForm.get('matching_passwords').get('confirm_password').dirty || userDetailsForm.get('matching_passwords').get('confirm_password').touched)">
+            {{validation.message}}
+          </mat-error>
+        </mat-error>
+
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -57,6 +94,6 @@
   
     </div>
     
-    <button class="but">S'inscrire</button>
+    <button class="but" type="submit" [disabled]="!userDetailsForm.valid">S'inscrire</button>
   </div>
 </form>
