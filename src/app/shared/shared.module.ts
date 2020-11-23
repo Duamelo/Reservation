@@ -19,7 +19,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DateRetourComponent } from './search-reservation/date-retour/date-retour.component';
 import { MatIconModule } from '@angular/material/icon';
-
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, SearchReservationComponent, BannerComponent, SignupComponent, SaisieComponent, DateComponent, DateRetourComponent ],
@@ -36,7 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
    ],
   exports:[
     NavbarComponent,

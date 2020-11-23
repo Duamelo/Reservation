@@ -18,10 +18,20 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class SignupComponent implements OnInit {
+  states: string[] = [
+    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
+    'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
+    'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+    'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
+    'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+  ];
     hide = true;
   /*isSuccessful = false;
   isSignUpFailed = false;
 */
+/*
   errorMessage='';
 
   userDetailsForm: FormGroup;
@@ -91,12 +101,12 @@ export class SignupComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder, private authService: AuthService) { }
-
+*/
  ngOnInit(): void { 
-  this.createForms();
+ // this.createForms();
   }
 
-
+/*
   createForms() {
     // matching passwords validation
     this.matching_passwords_group = new FormGroup({
@@ -149,13 +159,13 @@ export class SignupComponent implements OnInit {
       country_phone: this.country_phone_group
     });
 
-  }
+  }*/
+
+/*
   onSubmit(){
     this.authService.register(this.userDetailsForm).subscribe(
       data => {
         console.log(data);
-       /* this.isSuccessful = true;
-        this.isSignUpFailed = false;*/
       },
       err => {
         this.errorMessage =  err.error.message;
@@ -163,5 +173,5 @@ export class SignupComponent implements OnInit {
       }
     );
   }
-
+*/
 }
